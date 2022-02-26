@@ -43,6 +43,6 @@ for i in range(len(phone_list)):
     clean_phone_list.append(new_phone)  # добавляем номер телефона в список
 
 # Обработанный список переводим в таблицу с помощью pandas
-new_df = pd.DataFrame(clean_phone_list)
+new_df = pd.DataFrame(clean_phone_list, columns =['phones'])
 # Таблицу сохраняем в новый файл .xlsx
 new_df.to_excel(NEWFILE_PATH, sheet_name='clean_numbers', index=False)
