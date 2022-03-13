@@ -16,7 +16,6 @@ NEWFILE_PATH = '/Users/nikita/edu_projects/homework_samples/01_what_is_python/cl
 # Представим в виде функции программу char_cleaner_for_str
 # Добавили перевод перменной в строку!!!
 
-
 def char_clean(s):
     s = str(s)  # нужна строка, так как нельзя индексировать число
     new_s = ''  # создадим новую пустую строку
@@ -26,7 +25,6 @@ def char_clean(s):
         else:
             pass  # пропустить символ
     return new_s  # вернуть из функции обработанное значение
-
 
 # Используем метод из pandas, чтобы выгрузить .xlsx. Получим тип данных таблица
 excel_df = pd.read_excel(PATH, sheet_name='Worksheet')
