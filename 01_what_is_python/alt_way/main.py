@@ -1,4 +1,3 @@
-######## ВНИМАНИЕ!!! скрипт составлен для ресурса replit.com!!! ########
 # Допустим, у нас есть база данных с телефонными номерами.
 # Номера телефонов перемешаны с ненужными символами.
 # Так что дальнейшая обработка затруднена.
@@ -7,27 +6,32 @@
 # Для работы с .xlsx нам нужны функции из библиотеки pandas
 # Подключимся к библиотеке pandas
 import pandas as pd
-import sys  # подключимся к библиотеке sys
-
-# используем метод из sys для вывода информации из пути
-sys.path.insert(0, '/home/runner/pythonforranepa/')
 import mymodule as m  # импортируем содержимое файла mymodule
+from pprint import pprint # модуль позвляет использовать красивый вывод на экран
+
+print('========= СКРИПТ ДЛЯ ОЧИСТКИ НОМЕРОВ ТЕЛЕФОНОВ ОТ НЕНУЖНЫХ СИМВОЛОВ =========')
 
 # Укажем путь к файлу в виде перемнной со строкой
 ######## ВНИМАНИЕ!!! Укажите тот путь, где будет находится ваш файл!!! ########
-PATH = '/home/runner/pythonforranepa/phone_numbers.xlsx'
-NEWFILE_PATH = '/home/runner/pythonforranepa/clean_phone_numbers.csv'
+PATH = input(
+    'Введите путь к файлу формата .xlsx\nПуть запишите в формате /Users/User/file.xlsx :'
+    )
+NEWFILE_PATH = input(
+    '\nДля сохранения введите путь и название файла в формате .xlsx\nПуть запишите в формате /Users/User/new_file.xlsx :'
+    )
 
 # Используем метод из pandas, чтобы выгрузить .xlsx. Получим тип данных таблица
 excel_df = pd.read_excel(PATH, sheet_name='Worksheet')
-
 # Превратим таблицу в список
 phone_list = excel_df['phone_number'].values.tolist()
 clean_phone_list = m.phone_list_cleaner(phone_list)
 
-print(clean_phone_list)
+print('\n', '*'*77, '\nВот ваш результат:\n')
+pprint(clean_phone_list)
 
 # Обработанный список переводим в таблицу с помощью pandas
 new_df = pd.DataFrame(clean_phone_list, columns =['phones'])
 # Таблицу сохраняем в новый файл .xlsx
-new_df.to_csv(NEWFILE_PATH, index=False)
+new_df.to_excel(NEWFILE_PATH, sheet_name='clean_numbers', index=False)
+
+print('\nПроверьте результат по указнной директории\nСпасибо вам за использование скрипта!')
