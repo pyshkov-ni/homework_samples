@@ -7,11 +7,17 @@
 # Подключимся к библиотеке pandas
 import pandas as pd
 
+print('========= СКРИПТ ДЛЯ ОЧИСТКИ НОМЕРОВ ТЕЛЕФОНОВ ОТ НЕНУЖНЫХ СИМВОЛОВ =========')
+
 # Укажем путь к файлу в виде перемнной со строкой
 ######## ВНИМАНИЕ!!! Укажите тот путь, где будет находится ваш файл!!! ########
 
-PATH = '/Users/nikita/edu_projects/homework_samples/01_what_is_python/phone_numbers.xlsx'
-NEWFILE_PATH = '/Users/nikita/edu_projects/homework_samples/01_what_is_python/clean_phone_numbers.xlsx'
+PATH = input(
+    'Введите путь к файлу формата .xlsx\nПуть запишите в формате /Users/User/file.xlsx :'
+    )
+NEWFILE_PATH = input(
+    '\nДля сохранения введите путь и название файла в формате .xlsx\nПуть запишите в формате /Users/User/new_file.xlsx :'
+    )
 
 # Представим в виде функции программу char_cleaner_for_str
 # Добавили перевод перменной в строку!!!
@@ -40,7 +46,12 @@ for i in range(len(phone_list)):
     new_phone = char_clean(phone)  # обрабатываем телефон по функции выше
     clean_phone_list.append(new_phone)  # добавляем номер телефона в список
 
+print('\n', '*'*77, '\nВот ваш результат:\n')
+print(clean_phone_list)
+
 # Обработанный список переводим в таблицу с помощью pandas
 new_df = pd.DataFrame(clean_phone_list, columns =['phones'])
 # Таблицу сохраняем в новый файл .xlsx
 new_df.to_excel(NEWFILE_PATH, sheet_name='clean_numbers', index=False)
+
+print('\nПроверьте результат по указнной директории\nСпасибо вам за использование скрипта!')
