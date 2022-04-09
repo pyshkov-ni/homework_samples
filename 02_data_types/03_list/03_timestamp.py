@@ -15,7 +15,7 @@ my_favorite_songs = [
     ['Maybe Tomorrow', 4.32],
     ['Music Sounds Better With You', 6.43],
     ['Believer', 3.24],
-    ['Start Me Up', 4.04],
+    ['Start Me Up', 4.04]
 ]
 
 # Выведите общее время звучания любых трех песен в формате
@@ -40,4 +40,17 @@ time_sum = round((f_timestamp + s_timestamp + t_timestamp))
 print('Длина "{}" - {}'.format(f_name, f_timestamp))
 print('Длина "{}" - {}'.format(s_name, s_timestamp))
 print('Длина "{}" - {}'.format(t_name, t_timestamp))
+print('Три песни звучат', time_sum,'минут')
+
+
+# Решение 2
+first_time = my_favorite_songs[6][1]
+second_time = my_favorite_songs[5][1]
+third_time = my_favorite_songs[-2][1]
+
+total_time = round(first_time + second_time + third_time)
+
+print('Длина "{}" - {}'.format('Beautiful Day', first_time))
+print('Длина "{}" - {}'.format('Easy', second_time))
+print('Длина "{}" - {}'.format('Believer', third_time))
 print('Три песни звучат', time_sum,'минут')
