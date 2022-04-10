@@ -16,7 +16,7 @@ else:
     print('Введен неправильный номер месяца!')
 
 # Решение 2
-import calendar as cl
+import calendar as cl  # используем модуль для получения функции
 
 year_input = input("Введите год: ")
 month_input = input("Введите номер месяца: ")
